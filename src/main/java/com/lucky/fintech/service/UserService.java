@@ -27,6 +27,11 @@ public class UserService {
         return userRepository.findById(user.getId());
     }
 
+    /**
+     * 사용자 아이디로 사용자 객체 찾기
+     * @param user_login_id
+     * @return 사용자 객체 반환
+     */
     public Optional<User> findByUser_login_id(String user_login_id) {
         return userRepository.findByUser_login_id(user_login_id);
     }

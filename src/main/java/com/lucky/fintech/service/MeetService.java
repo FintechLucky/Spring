@@ -1,5 +1,6 @@
 package com.lucky.fintech.service;
 
+import com.lucky.fintech.dto.MeetDto;
 import com.lucky.fintech.entity.Meet;
 import com.lucky.fintech.entity.MeetHasUser;
 import com.lucky.fintech.entity.User;
@@ -40,5 +41,14 @@ public class MeetService {
         }
 
         meetRepository.save(meet);
+    }
+
+    /**
+     * 사용자 아이디가 속한 모임 리스트 찾기
+     * @param user_login_id
+     * @return 모임 Dto 객체 리스트
+     */
+    public List<MeetDto> findMeetsByUser_login_id(String user_login_id) {
+        return meetRepository.findMeetsByUser_login_id(user_login_id);
     }
 }
