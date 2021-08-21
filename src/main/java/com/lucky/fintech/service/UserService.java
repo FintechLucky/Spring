@@ -20,7 +20,7 @@ public class UserService {
      * @return 사용자 객체 반환
      */
     public Optional<User> join(User user, Card card) {
-        user.getCardList().add(card);
+        user.addCard(card);
         userRepository.save(user); // 회원 객체 DB에 등록
         cardRepository.save(card); // 카드 객체 DB에 등록
 

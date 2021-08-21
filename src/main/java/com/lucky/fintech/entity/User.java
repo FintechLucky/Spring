@@ -30,7 +30,9 @@ public class User {
 
     // 사용자에게 카드 추가
     public void addCard(Card card) {
-        card.setUser(card.getUser());
-        cardList.add(card);
+        this.cardList.add(card);
+        if (card.getUser() != this) {
+            card.setUser(this);
+        }
     }
 }
