@@ -6,10 +6,12 @@ import com.lucky.fintech.entity.User;
 import com.lucky.fintech.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -58,5 +60,11 @@ public class UserController {
             return result;
         }
 
+    }
+
+    @GetMapping("/user/list")
+    @ResponseBody
+    public List<UserDto> findAllUser() {
+        return userService.findAllUser();
     }
 }

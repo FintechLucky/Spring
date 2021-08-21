@@ -1,11 +1,14 @@
 package com.lucky.fintech.service;
 
+import com.lucky.fintech.dto.UserDto;
 import com.lucky.fintech.entity.Card;
 import com.lucky.fintech.entity.User;
 import com.lucky.fintech.repository.CardRepository;
 import com.lucky.fintech.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -34,6 +37,11 @@ public class UserService {
      */
     public Optional<User> findByUser_login_id(String user_login_id) {
         return userRepository.findByUser_login_id(user_login_id);
+    }
+
+
+    public List<UserDto> findAllUser() {
+        return userRepository.findAllUserList();
     }
 
 }

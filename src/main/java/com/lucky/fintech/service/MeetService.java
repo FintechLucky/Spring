@@ -24,7 +24,7 @@ public class MeetService {
      * 모임 생성
      * param : 멤버 사용자들 아이디, 모임 이름
      */
-    public void newMeet(@NotNull List<String> userList, String name) {
+    public Meet newMeet(@NotNull List<String> userList, String name) {
         // 모임 생성
         Meet meet = new Meet(name);
 
@@ -40,7 +40,7 @@ public class MeetService {
 
         }
 
-        meetRepository.save(meet);
+        return meetRepository.save(meet);
     }
 
     /**
