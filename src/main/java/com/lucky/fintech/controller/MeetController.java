@@ -1,6 +1,7 @@
 package com.lucky.fintech.controller;
 
 import com.lucky.fintech.dto.MeetDto;
+import com.lucky.fintech.entity.Meet;
 import com.lucky.fintech.service.MeetService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,7 @@ public class MeetController {
      */
     @PostMapping("/meet/save")
     @ResponseBody
-    public void newMeet(@RequestBody Map<String, List<String>> meetInfo) {
+    public MeetDto newMeet(@RequestBody Map<String, List<String>> meetInfo) {
         List<String> userList = meetInfo.get("userList");
         String meetName = meetInfo.get("meetName").get(0);
         if (meetName.equals("")) {
@@ -29,7 +30,9 @@ public class MeetController {
                     .map(n -> String.valueOf(n))
                     .collect(Collectors.joining(", "));
         }
-        meetService.newMeet(userList, meetName);
+        Meet meet = meetService.newMeet(userList, meetName);
+        MeetDto result = new MeetDto(meet.getId(), meet.getName());
+        return result;
     }
 
 

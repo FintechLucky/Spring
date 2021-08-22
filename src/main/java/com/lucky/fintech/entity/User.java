@@ -34,6 +34,9 @@ public class User {
     @JsonBackReference //순환참조 방지
     private List<MeetHasUser> meetHasUserList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Pay> payList = new ArrayList<>();
+
     @Builder
     public User(String user_login_id, String user_login_pass, String user_name) {
         this.user_login_id = user_login_id;
@@ -56,5 +59,10 @@ public class User {
     // 사용자를 모임에 추가
     public void addMeetHasUser(MeetHasUser meetHasUser) {
         this.meetHasUserList.add(meetHasUser);
+    }
+
+    // 사용자를 pay 에 추가
+    public void addPay(Pay pay) {
+        this.payList.add(pay);
     }
 }

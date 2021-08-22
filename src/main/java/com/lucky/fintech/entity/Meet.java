@@ -28,4 +28,6 @@ public class Meet {
     @OneToMany(mappedBy = "meet")
     @JsonManagedReference // 순환참조 방지
     private List<MeetHasUser> meetHasUserList = new ArrayList<>();
+
+
 }
