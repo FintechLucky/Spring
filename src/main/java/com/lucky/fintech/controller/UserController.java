@@ -22,8 +22,7 @@ public class UserController {
 
     /**
      * 회원 가입
-     *
-     * @param map
+     * @param map - 회원가입 정보
      * @return User 객체
      */
     @PostMapping("/user/new")
@@ -41,6 +40,11 @@ public class UserController {
     }
 
 
+    /**
+     * 로그인
+     * @param map - 로그인 정보
+     * @return 로그인 검사 결과 전달
+     */
     @PostMapping("/user/login")
     @ResponseBody
     public Optional<UserDto> login(@RequestBody Map<String, String> map) {
@@ -62,6 +66,10 @@ public class UserController {
 
     }
 
+    /**
+     * 모든 사용자 찾기
+     * @return 모든 사용자 Dto 객체 리스트 전달
+     */
     @GetMapping("/user/list")
     @ResponseBody
     public List<UserDto> findAllUser() {

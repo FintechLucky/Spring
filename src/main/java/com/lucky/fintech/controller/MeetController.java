@@ -18,7 +18,8 @@ public class MeetController {
 
     /**
      * 모임 생성
-     * @param meetInfo
+     * @param meetInfo - 모임 세부 정보
+     * @return 생성된모임 객체 Dto 전달
      */
     @PostMapping("/meet/save")
     @ResponseBody
@@ -38,8 +39,8 @@ public class MeetController {
 
     /**
      * 사용자 아이디로 사용자가 속해있는 모임 리스트 조회
-     * @param user_login_id
-     * @return
+     * @param user_login_id - 사용자 로그인 아이디
+     * @return 해당 사용자 아이디가 속해있는 모임 객체 Dto 리스트 전달
      */
     @GetMapping("/meet/list")
     @ResponseBody

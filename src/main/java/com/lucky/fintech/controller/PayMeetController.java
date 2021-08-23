@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -19,7 +18,9 @@ public class PayMeetController {
     private final PayMeetService payMeetService;
 
     /**
-     * param :
+     * 새로운 정산 생성
+     * @param : 정산에 참여하는 인원 리스트 및 정산 세부 정보
+     * @return : 생성된 정산 객체 Dto 전달
      */
     @PostMapping("/paymeet/save")
     @ResponseBody
